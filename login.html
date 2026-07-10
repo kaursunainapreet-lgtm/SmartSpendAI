@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartSpend AI — Welcome</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body class="auth-body">
+
+  <div class="auth-page">
+    <span class="deco-flower deco-tl">🌸</span>
+    <span class="deco-flower deco-tr">🌷</span>
+    <span class="deco-flower deco-bl">🌼</span>
+    <span class="deco-flower deco-br">💮</span>
+
+    <div class="auth-card">
+      <div class="auth-brand">
+        <span class="brand-mark">$</span>
+        <span class="brand-name">SmartSpend<em>AI</em></span>
+      </div>
+
+      <h1 class="auth-welcome">Welcome back 🌼</h1>
+      <p class="auth-sub">Log in to see how your money's been doing.</p>
+
+      <form id="loginForm" class="auth-form">
+        <label>Email
+          <input type="email" id="loginEmail" placeholder="you@example.com" required />
+        </label>
+        <label>Password
+          <input type="password" id="loginPassword" placeholder="Your password" required />
+        </label>
+        <p class="auth-error" id="loginError"></p>
+        <button type="submit" class="btn-auth-submit">Log In</button>
+      </form>
+
+      <p class="auth-footnote">New here? <a href="onboarding.html" class="auth-link">Create an account</a></p>
+    </div>
+  </div>
+
+  <div class="flower-rain" id="flowerRain"></div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

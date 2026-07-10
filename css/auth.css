@@ -1,0 +1,5 @@
+/* All auth page styles (login + onboarding) now live inside style.css
+   under the "AUTH PAGES" section, so both pages stay visually
+   consistent with the rest of the app using the same design tokens.
+   This file is kept only so the <link> tag in login.html / onboarding.html
+   doesn't 404 — no styles needed here. */

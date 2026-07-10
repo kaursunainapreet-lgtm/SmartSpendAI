@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartSpend AI — Personal Finance Intelligence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<div class="brand">
+<span class="brand-mark">$</span>
+<span class="brand-name">SmartSpend<em>AI</em></span>
+</div>
+
+<nav class="nav">
+<a href="#" class="nav-item active" data-view="dashboard">Dashboard</a>
+<a href="#" class="nav-item" data-view="expenses">Expenses</a>
+<a href="#" class="nav-item" data-view="budgets">Budgets</a>
+<a href="#" class="nav-item" data-view="reports">Reports</a>
+<a href="#" class="nav-item" data-view="assistant">AI Assistant</a>
+</nav>
+
+<div class="sidebar-footer">
+<span class="user-tag" id="sidebarUserName">Your Name</span>
+<span class="user-sub" id="sidebarUserIncome">₹0 / month</span>
+<button class="logout-btn" id="logoutBtn">Log Out</button>
+</div>
+
+</aside>
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+<!-- ================= DEMO BANNER ================= -->
+
+<div id="demoBanner" class="demo-banner" style="display:none;">
+
+🧪
+<span>
+You're viewing demonstration data.
+<strong>Your real expenses are completely safe.</strong>
+</span>
+
+</div>
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="top-bar">
+
+<h2 class="page-title">
+
+Dashboard
+
+<span id="demoBadge" class="demo-badge" style="display:none;">
+DEMO MODE
+</span>
+
+</h2>
+
+<div class="top-bar-actions">
+
+<!-- NEW NOTIFICATION BUTTON -->
+
+<button
+class="notification-btn"
+id="notificationBtn">
+
+🔔
+
+<span
+class="notification-count"
+id="notificationCount">
+
+0
+
+</span>
+
+</button>
+
+<button
+class="btn-sample-data"
+id="demoToggleBtn">
+
+🧪 Enter Demo
+
+</button>
+
+<button
+class="btn-add-expense"
+id="addExpenseBtn">
+
++ Add Expense
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+
+<div
+class="view active"
+data-view="dashboard"
+id="view-dashboard">
+
+<section
+class="ledger-tape"
+id="ledgerTape">
+
+</section>
+
+<section
+class="stat-row"
+id="statRow">
+
+</section>
+
+<section class="charts-grid">
+  <div class="panel panel-large">
+
+<div class="panel-head">
+<h3>Monthly Expense Trend</h3>
+<span class="panel-tag">Last 6 months</span>
+</div>
+
+<canvas id="trendChart"></canvas>
+
+</div>
+
+
+
+<div class="panel">
+
+<div class="panel-head">
+<h3>Spending by Category</h3>
+</div>
+
+<canvas id="categoryChart"></canvas>
+
+</div>
+
+
+
+<div class="panel">
+
+<div class="panel-head">
+<h3>Income vs Expense</h3>
+</div>
+
+<canvas id="incomeExpenseChart"></canvas>
+
+</div>
+
+
+
+<div class="panel panel-large">
+
+<div class="panel-head">
+<h3>Weekly Spending</h3>
+</div>
+
+<canvas id="weeklyChart"></canvas>
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- ================= EXPENSES ================= -->
+
+<div
+class="view"
+data-view="expenses"
+id="view-expenses">
+
+<div class="panel">
+
+<div class="panel-head">
+
+<h3>All Transactions</h3>
+
+<div
+class="multi-filter"
+id="expenseFilterWrap">
+
+<button
+type="button"
+class="filter-select"
+id="filterDropdownBtn">
+
+All categories ▾
+
+</button>
+
+<div
+class="filter-dropdown"
+id="filterDropdown">
+
+</div>
+
+</div>
+
+</div>
+
+<div
+class="expense-table"
+id="expenseTable">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= BUDGET ================= -->
+
+<div
+class="view"
+data-view="budgets"
+id="view-budgets">
+
+<div class="panel">
+
+<div class="panel-head">
+<h3>Budget Status</h3>
+</div>
+
+<div
+class="budget-list"
+id="budgetList">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= REPORTS ================= -->
+
+<div
+class="view"
+data-view="reports"
+id="view-reports">
+
+<div class="panel">
+
+<div class="panel-head">
+<h3>Monthly Report</h3>
+</div>
+
+<div
+class="report-grid"
+id="reportGrid">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= AI ================= -->
+
+<div
+class="view"
+data-view="assistant"
+id="view-assistant">
+
+<div class="panel panel-ai">
+
+<div class="panel-head">
+
+<h3>AI Insight</h3>
+
+<span
+class="panel-tag panel-tag-ai">
+
+Auto-generated
+
+</span>
+
+</div>
+
+<div
+class="ai-insight-body"
+id="aiInsightBody">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= NOTIFICATION PANEL ================= -->
+
+<div
+class="notification-panel"
+id="notificationPanel">
+
+<div class="notification-header">
+
+<h3>🔔 Notifications</h3>
+
+<button
+id="clearNotifications">
+
+Clear All
+
+</button>
+
+</div>
+
+<div
+class="notification-list"
+id="notificationList">
+
+<p class="notification-empty">
+
+No notifications yet.
+
+</p>
+
+</div>
+
+</div>
+
+</main>
+<!-- ================= CHAT ================= -->
+
+<div class="chat-widget" id="chatWidget">
+
+<button class="chat-toggle" id="chatToggle">
+Ask SmartSpend AI
+</button>
+
+<div class="chat-panel" id="chatPanel">
+
+<div class="chat-head">
+
+<span>AI Assistant</span>
+
+<button
+class="chat-close"
+id="chatClose">
+
+×
+
+</button>
+
+</div>
+
+<div
+class="chat-messages"
+id="chatMessages">
+
+</div>
+
+<form
+class="chat-input-row"
+id="chatForm">
+
+<input
+type="text"
+id="chatInput"
+placeholder="e.g. How much did I spend on food?"
+autocomplete="off"
+/>
+
+<button type="submit">
+
+Send
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- ================= EXPENSE MODAL ================= -->
+
+<div
+class="modal-overlay"
+id="expenseModalOverlay">
+
+<div class="modal">
+
+<div class="modal-head">
+
+<h3>Add Expense</h3>
+
+<button
+class="chat-close"
+id="closeExpenseModal">
+
+×
+
+</button>
+
+</div>
+
+<form
+id="expenseForm"
+class="expense-form">
+
+<label>
+
+Amount (₹)
+
+<input
+type="number"
+id="expAmount"
+required
+min="1"
+step="1">
+
+</label>
+
+<label class="checkbox-label">
+
+<input
+type="checkbox"
+id="expSplitToggle">
+
+Split this expense across multiple categories
+
+</label>
+
+<div id="singleCategoryWrap">
+
+<label>
+
+Category
+
+<select id="expCategory"></select>
+
+</label>
+
+</div>
+
+<div
+id="splitCategoryWrap"
+class="split-wrap hidden">
+
+<span class="split-label">
+
+Select 2 or more categories
+
+</span>
+
+<div id="splitCheckboxList"></div>
+
+<div id="splitPreview"></div>
+
+</div>
+
+<label>
+
+Description
+
+<input
+type="text"
+id="expDesc"
+required>
+
+</label>
+
+<label>
+
+Date
+
+<input
+type="date"
+id="expDate"
+required>
+
+</label>
+
+<label>
+
+Payment Method
+
+<select id="expPayment">
+
+<option>UPI</option>
+<option>Card</option>
+<option>Cash</option>
+<option>Net Banking</option>
+
+</select>
+
+</label>
+
+<button
+type="submit"
+class="btn-submit-expense">
+
+Add Expense
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- ================= SCRIPTS ================= -->
+
+<script src="js/sampleData.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/demoMode.js"></script>
+
+<script src="js/data.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/session.js"></script>
+
+<script src="js/ai.js"></script>
+
+<script src="js/expense.js"></script>
+
+<script src="js/views.js"></script>
+
+<script src="js/router.js"></script>
+
+<!-- NEW -->
+
+<script src="js/notifications.js"></script>
+<script src="js/browserNotifications.js"></script>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
