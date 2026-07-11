@@ -316,44 +316,77 @@ http://127.0.0.1:5000
 ---
 
 # 📸 Screenshots
+# 📸 Application Screenshots
 
-Replace these placeholders with screenshots.
+## 🔐 Login Page
 
-## Login Page
-
-*(Insert Screenshot)*
-
----
-
-## Dashboard
-
-*(Insert Screenshot)*
+<p align="center">
+<img src="assets/login.png" width="100%">
+</p>
 
 ---
 
-## Expense Management
+## 👤 User Onboarding
 
-*(Insert Screenshot)*
-
----
-
-## Budget Overview
-
-*(Insert Screenshot)*
+<p align="center">
+<img src="assets/onboarding.png" width="100%">
+</p>
 
 ---
 
-## Analytics Dashboard
+## 📊 Dashboard
 
-*(Insert Screenshot)*
+<p align="center">
+<img src="assets/dashboard.png" width="100%">
+</p>
+
+---
+
+## 📈 Complete Dashboard
+
+<p align="center">
+<img src="assets/dashboard%20complete.png" width="100%">
+</p>
 
 ---
 
-## AI Assistant
+## 📉 Graphical Insights
 
-*(Insert Screenshot)*
+<p align="center">
+<img src="assets/graphical%20insights.png" width="100%">
+</p>
 
 ---
+
+## 💸 Expense Management
+
+<p align="center">
+<img src="assets/expenses.png" width="100%">
+</p>
+
+---
+
+## 📋 Reports
+
+<p align="center">
+<img src="assets/reports.png" width="100%">
+</p>
+
+---
+
+## 🤖 AI Financial Assistant
+
+<p align="center">
+<img src="assets/ai%20assistant.png" width="100%">
+</p>
+
+---
+
+## 🔔 Browser Notifications
+
+<p align="center">
+<img src="assets/notifications.png" width="100%">
+</p>
 
 # 🔄 Project Workflow
 
